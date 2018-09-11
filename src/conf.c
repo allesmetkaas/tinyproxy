@@ -257,7 +257,7 @@ struct {
         },
         {
                 BEGIN "(upstream)" WS "(http|socks4|socks5)" WS
-                      "(" ALNUM /*username*/ ":" ALNUM /*password*/ "@" ")?"
+                      "(" ALNUM /*username*/ ":" STR /*password*/ "@" ")?"
                       "(" IP "|" ALNUM ")"
                       ":" INT "(" WS STR ")?"
                 END, handle_upstream, NULL
