@@ -51,7 +51,7 @@
 #define STR "\"([^\"]+)\""
 #define BOOL "(yes|on|no|off)"
 #define INT "((0x)?[[:digit:]]+)"
-#define ALNUM "([-a-z0-9._]+)"
+#define ALNUM "([-a-z0-9.+_]+)"
 #define GRAPH "([-a-zA-Z0-9.+=!@#$%^&_]+)"
 #define IP "((([0-9]{1,3})\\.){3}[0-9]{1,3})"
 #define IPMASK "(" IP "(/[[:digit:]]+)?)"
@@ -258,7 +258,7 @@ struct {
         },
         {
                 BEGIN "(upstream)" WS "(http|socks4|socks5)" WS
-                      "(" ALNUM /*username*/ ":" GRAPH /*password*/ "@" ")?"
+                      "(" ALNUM /*username*/ ":" ALNUM /*password*/ "@" ")?"
                       "(" IP "|" ALNUM ")"
                       ":" INT "(" WS STR ")?"
                 END, handle_upstream, NULL
